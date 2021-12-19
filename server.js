@@ -1,15 +1,7 @@
-constexpress=require('express');
-constapp=expres();
-constpath=require('path');
- 
-app.us(express.static(__dirname+'/dist/cv'));
- 
-app.listen(process.env.PORT||8080);
- 
- 
-//PathLocationStradegy
-app.get('/',function(req,res) {
-  res.sendFile(path.join(__dirname+'/dist/cv/index.html'));
-});
- 
-console.log('Console Listening'); 
+const express = require('express');
+const path = require('path');
+const app = express();
+app.use(express.static(__dirname + '/dist/cv'));
+app.get('/*', function(req,res) {
+res.sendFile(path.join(__dirname+'/dist/cv/index.html'));});
+app.listen(process.env.PORT || 8080);
